@@ -1,0 +1,5 @@
+<h2><%= h @feed.name %></h2>
+
+<%= link_to "Edit", edit_admin_feed_path(@feed) %> |
+<%= link_to "Delete", admin_feed_path(@feed), :confirm => "Are you sure?", :method => "delete" %> |
+<%= render :partial => "back_to_feeds" %>

@@ -1,9 +1,7 @@
 <h2>New Feed</h2>
 
-<% form_for :feed, @feed, :url => admin_feeds_path do |f| %>
-  
+<% form_for :feed, @feed, :url => admin_feeds_path do |f| %>  
   <%= render :partial => "fields", :locals => { :f => f } %>
-  
 <% end -%>
 
-<%= link_to "Back to Feeds", admin_feeds_path %>
+<%= render :partial => "back_to_feeds" %>
