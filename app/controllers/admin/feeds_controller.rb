@@ -15,6 +15,12 @@ class Admin::FeedsController < ApplicationController
     render :action => "new"
   end
 
+  def destroy
+    @feed.destroy
+    flash[:notice] = "Feed deleted"
+    redirect_to admin_feeds_path
+  end
+  
   private
   
   def load_feed
