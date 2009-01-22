@@ -1,0 +1,7 @@
+<h2>Feeds</h2>
+
+<ul>
+  <%= render :partial => "feed", :collection => @feeds %>
+</ul>
+
+<%= link_to "New Feed", new_admin_feed_path %>
