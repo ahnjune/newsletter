@@ -2,6 +2,15 @@
   font-family: Helvetica;
 }
 
+ul { 
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 5 0 5 0;
+}
+
 #content {
   margin: 10 0 0 10;
 }
@@ -12,6 +21,12 @@ h2 {
 }
 
 a {
+  text-decoration: none;
+  color: #333;
+  border-bottom: dotted 2px #aaa;
+}
+
+.links a {
   font-size: 14px;
   text-decoration: none;
   color: #333;
@@ -20,7 +35,7 @@ a {
   padding: 5 5 5 5;
 }
 
-a:hover {
+.links a:hover {
   color: #fff;
   background: #333;
 }
@@ -30,4 +45,8 @@ form {
   background: #eee;
   border: solid 1px #aaa;
   padding: 5px;
+}
+
+input.text_field {
+  font-size: 15px;
 }

@@ -8,4 +8,8 @@ class Feed < ActiveRecord::Base
   
   named_scope :ordered, :order => "name"
   
+  def to_param
+    [id, name.downcase.gsub(/\W/,"")].join("-")
+  end
+  
 end

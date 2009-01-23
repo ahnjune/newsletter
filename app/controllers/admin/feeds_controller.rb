@@ -21,6 +21,14 @@ class Admin::FeedsController < ApplicationController
     redirect_to admin_feeds_path
   end
   
+  def update
+    if @feed.update_attributes(params[:feed])
+      flash[:notice] = "Feed updated"
+      redirect_to admin_feed_path(@feed) and return
+    end
+    render :action => "edit"
+  end
+  
   private
   
   def load_feed
