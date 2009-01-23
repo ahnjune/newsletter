@@ -41,12 +41,26 @@ a {
 }
 
 form {
-  margin: 10 0 10 0;
-  background: #eee;
+  margin: 10 0 20 0;
+  background: #fafafa;
   border: solid 1px #aaa;
-  padding: 5px;
+  padding: 5 5 5 10;
+  width: 500px;
 }
 
-input.text_field {
-  font-size: 15px;
+input {
+  font-size: 16px;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+.fieldWithErrors input {
+  border: solid 3px red;
+}
+
+label {
+  cursor: pointer;
+  font-weight: bold;
 }
