@@ -1,6 +1,6 @@
 <h2>New Feed</h2>
 
-<% form_for :feed, @feed, :url => admin_feeds_path do |f| %>  
+<% custom_form_for :feed, @feed, :url => admin_feeds_path do |f| %>  
   <%= render :partial => "fields", :locals => { :f => f } %>
 <% end -%>
 
