@@ -3,12 +3,16 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>Newsletter</title>
     
+    
+    <%= stylesheet_link_tag "reset" %>
     <%= stylesheet_link_tag "site" %>
     <%= javascript_include_tag :defaults %>
     
   </head>
   
   <body>
-    <%= yield :layout %>
+    <div id="content">
+      <%= yield :layout %>
+    </div>
   </body>
 </html>
