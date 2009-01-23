@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
     admin.resources :feeds
+    admin.root :controller => "feeds"
   end
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
