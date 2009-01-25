@@ -8,8 +8,16 @@ class Feed < ActiveRecord::Base
   
   named_scope :ordered, :order => "title"
   
+  before_validation :fetch
+  
   def to_param
-    [id, name.downcase.gsub(/\W/,"")].join("-")
+    [id, title.downcase.gsub(/\W/,"")].join("-")
+  end
+
+  def fetch
+    returning FeedTools::Feed.open(url) do |fetched|
+      self.title = fetched.title
+    end
   end
   
 end
