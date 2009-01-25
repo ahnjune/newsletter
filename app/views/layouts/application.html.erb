@@ -13,6 +13,9 @@
       <%= link_to image_tag("bleep_header.png"), root_path %>
       <%= link_to image_tag("header.png"), root_path %>
     </div>
+    <% flash.keys.each do |key| %>
+      <%= content_tag :div, flash[key], :class => "flash #{key}" %>
+    <% end -%>
     <div id="content">
       <%= yield :layout %>
     </div>

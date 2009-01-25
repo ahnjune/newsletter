@@ -6,6 +6,10 @@ class Admin::FeedsController < ApplicationController
     @feeds = Feed.ordered
   end
   
+  def new
+    @feed = Feed.new(:url => "slashdot.org")
+  end
+  
   def create
     @feed = Feed.new(params[:feed])
     if @feed.save

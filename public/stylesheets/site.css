@@ -2,8 +2,6 @@
   font-family: Helvetica;
 }
 
-
-
 body {
   margin: 0;
 }
@@ -82,4 +80,18 @@ input {
 label {
   cursor: pointer;
   font-weight: bold;
+}
+
+.flash {
+  padding: 10 10 10 15;
+  color: white;
+  font-weight: bold;
+}
+
+.flash.notice {
+  background: green; 
+}
+
+.flash.error {
+  background: red;
 }
