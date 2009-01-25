@@ -1,4 +1,4 @@
-class Admin::FeedsController < ApplicationController
+class Admin::FeedsController < Admin::BaseController
 
   before_filter :load_feed
   

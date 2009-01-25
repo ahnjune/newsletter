@@ -12,6 +12,9 @@
     <div id="header">
       <%= link_to image_tag("bleep_header.png"), root_path %>
       <%= link_to image_tag("header.png"), root_path %>
+      <% if @admin_area %>
+        <%= link_to image_tag("admin.png"), admin_root_path %>
+      <% end %>
     </div>
     <% flash.keys.each do |key| %>
       <%= content_tag :div, flash[key], :class => "flash #{key}" %>
