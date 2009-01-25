@@ -102,3 +102,18 @@ label {
 .flash.error {
   background: red;
 }
+
+#navigation {
+  padding: 5 5 5 10;
+  background: black;
+}
+
+#navigation a {
+  color: #888;
+  border: none;
+  margin-right: 15px;
+}
+
+#navigation a.active, #navigation a:hover {
+  color: white;
+}

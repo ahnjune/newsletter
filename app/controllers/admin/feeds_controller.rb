@@ -1,6 +1,7 @@
 class Admin::FeedsController < Admin::BaseController
 
   before_filter :load_feed
+  before_filter :set_nav
   
   def index
     @feeds = Feed.ordered
@@ -42,6 +43,10 @@ class Admin::FeedsController < Admin::BaseController
   
   def load_feed
     @feed = Feed.find(params[:id]) if params[:id]
+  end
+
+  def set_nav
+    @nav = :feeds
   end
   
 end
