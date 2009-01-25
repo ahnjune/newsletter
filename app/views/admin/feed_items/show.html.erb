@@ -1,5 +1,8 @@
 <h2>Feed Item: <%= h @feed_item.title %></h2>
 
+<div class="feed_item_content">
+  <%= sanitize @feed_item.content %>
+</div>
 
 <div class="links">
   <%= link_to "Back to Feed", admin_feed_path(@feed) %>

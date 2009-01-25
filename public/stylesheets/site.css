@@ -117,3 +117,11 @@ label {
 #navigation a.active, #navigation a:hover {
   color: white;
 }
+
+.feed_item_content {
+  background: #eee;
+  width: 650px;
+  border: solid 2px #aaa;
+  margin-bottom: 15px;
+  padding: 10px;
+}

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090125220243) do
+ActiveRecord::Schema.define(:version => 20090125233821) do
 
   create_table "feed_items", :force => true do |t|
     t.integer  "feed_id"
@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20090125220243) do
     t.string   "link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "content"
   end
 
   create_table "feeds", :force => true do |t|

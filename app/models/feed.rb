@@ -31,12 +31,14 @@ class Feed < ActiveRecord::Base
     logger.info "Item: #{item.title}"
     if feed_item = feed_items.detect { |feed_item| feed_item.link == item.link}
       # update the feed item
+      feed_item.update_attribute :content, item.content
     else
       # add the feed item
       feed_items.push FeedItem.new({
         :feed => self,
         :title => item.title,
-        :link => item.link
+        :link => item.link,
+        :content => item.content
       })
     end
   end
