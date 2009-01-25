@@ -13,7 +13,6 @@ class Admin::FeedsController < ApplicationController
   end
   
   def new
-    @feed = Feed.new(:url => "slashdot.org")
   end
   
   def create

@@ -17,6 +17,7 @@ role :app, "#{host}"
 role :web, "#{host}"
 role :db,  "#{host}", :primary => true
 
+set :deploy_via, :remote_cache
 
 namespace :deploy do
   desc "Restart Application"
