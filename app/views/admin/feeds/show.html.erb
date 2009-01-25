@@ -2,6 +2,13 @@
 <h3><%= h @feed.url %></h3>
 
 <h2>Items</h2>
+<ul class="feed_items">
+  <% for item in @feed.feed_items %>
+    <li>
+      <%= link_to h(item.title) %>
+    </li>
+  <% end %>
+</ul>
 
 <div class="links">
   <%= link_to "Fetch", fetch_admin_feed_path(@feed) %>
