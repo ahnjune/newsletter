@@ -2,6 +2,25 @@
   font-family: Helvetica;
 }
 
+
+
+body {
+  margin: 0;
+}
+
+#header {
+  background: black;
+  padding: 5px;
+}
+
+#header img {
+  border: none;
+}
+
+#header a {
+  border: none;
+}
+
 ul { 
   list-style: none;
   padding: 0;
