@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
     admin.resources :feeds, :member => "fetch"
+    admin.resources :feed_items
     admin.root :controller => "feeds"
   end
 

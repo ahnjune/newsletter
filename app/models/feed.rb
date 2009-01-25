@@ -15,7 +15,7 @@ class Feed < ActiveRecord::Base
   end
   
   def to_param
-    [id, title.downcase.gsub(/\W/,"")].join("-")
+    [id, title.downcase[(0..15)].gsub(/\W/,"")].join("-")
   end
 
   def fetch

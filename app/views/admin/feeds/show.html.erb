@@ -5,7 +5,7 @@
 <ul class="feed_items">
   <% for item in @feed.feed_items %>
     <li>
-      <%= link_to h(item.title) %>
+      <%= link_to h(item.title), admin_feed_item_path(item) %>
     </li>
   <% end %>
 </ul>
