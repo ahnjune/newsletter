@@ -1,15 +1,32 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+set :application, "newsletter"
+set :hostname, "newsletter.nimbletechnique.com"
 
-# If you aren't deploying to /u/apps/#{application} on the target
-# servers (which is the default), you can specify the actual location
-# via the :deploy_to variable:
-# set :deploy_to, "/var/www/#{application}"
+set :user, "deploy"
+set :host, "#{user}@#{hostname}"
 
-# If you aren't using Subversion to manage your source code, specify
-# your SCM below:
-# set :scm, :subversion
+set :scm, :git
+set :repository, "git@github.com:nimbletechnique/#{application}.git"
+set :use_sudo, false
 
-role :app, "your app-server here"
-role :web, "your web-server here"
-role :db,  "your db-server here", :primary => true
+set :deploy_to, "/var/www/apps/#{application}"
+set :runner, user
+set :ssh_options, { :forward_agent => true }
+set :branch, "master"
+
+role :app, "#{host}"
+role :web, "#{host}"
+role :db,  "#{host}", :primary => true
+
+
+namespace :deploy do
+  desc "Restart Application"
+  task :restart do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end
+
+after 'deploy:update_code' do
+  ["database", ].each do |name|
+    run "ln -s #{deploy_to}/shared/#{name}.yml #{release_path}/config"
+  end
+end
