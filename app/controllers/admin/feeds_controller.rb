@@ -6,6 +6,12 @@ class Admin::FeedsController < ApplicationController
     @feeds = Feed.ordered
   end
   
+  def fetch
+    @feed.fetch
+    flash[:notice] = "Feed Updated"
+    redirect_to :action => "show"
+  end
+  
   def new
     @feed = Feed.new(:url => "slashdot.org")
   end
