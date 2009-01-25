@@ -19,7 +19,7 @@ class Admin::FeedsController < ApplicationController
     @feed = Feed.new(params[:feed])
     if @feed.save
       flash[:notice] = "Feed created"
-      redirect_to admin_feeds_path and return
+      redirect_to admin_feed_path(@feed) and return
     end
     render :action => "new"
   end
