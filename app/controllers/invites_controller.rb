@@ -3,7 +3,10 @@ class InvitesController < ApplicationController
   before_filter :set_nav
   
   def create
-    flash[:notice] = "Invites sent! Thank you."
+    params[:invite][:emails].split("\n").each do |email|
+      Mailer.deliver_invite current_user, email, request.host
+    end
+    flash[:notice] = "Thank you!"
     redirect_to new_invite_path
   end
   
