@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :feeds, :member => "fetch"
     admin.resources :feed_items
     admin.resources :users
+    admin.resources :areas
     admin.root :controller => "feeds"
   end
 

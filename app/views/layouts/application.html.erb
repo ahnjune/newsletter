@@ -23,6 +23,7 @@
         <%= link_to "Invite", new_invite_path, :class => nav_class(:invites) %>
         <% if current_user.admin? %>
           <%= link_to "Feeds", admin_feeds_path, :class => nav_class(:feeds) %>
+          <%= link_to "Areas", admin_areas_path, :class => nav_class(:areas) %>
           <%= link_to "Users", admin_users_path, :class => nav_class(:users) %>
         <% end -%>
         <%= link_to "Log out", logout_path %>

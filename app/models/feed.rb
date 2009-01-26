@@ -1,6 +1,7 @@
 class Feed < ActiveRecord::Base
   
   has_many :feed_items, :dependent => :destroy
+  has_many :assigned_areas, :as => "owner", :dependent => :destroy
   
   validates_presence_of :url  
   validates_uniqueness_of :url
