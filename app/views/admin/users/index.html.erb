@@ -13,8 +13,8 @@
     <tr>
       <td><%= h user.email %></td>
       <td><%= h user.login %></td>
-      <td><%= user.created_at %></td>
-      <td><%= user.updated_at %></td>
+      <td><%= datetime user.created_at %></td>
+      <td><%= datetime user.updated_at %></td>
     </tr>
   <% end -%>
 </table>
