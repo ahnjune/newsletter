@@ -5,7 +5,7 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
       options = args.extract_options!
       label = label(field_name)
       field = super(field_name, *[args, options.merge(:class => method_name)].flatten)
-      @template.content_tag(:p, [label, field].join("<br/"))
+      @template.content_tag(:p, [label, field].join("<br/>"))
     end
   end
   
