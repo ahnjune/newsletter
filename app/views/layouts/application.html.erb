@@ -28,9 +28,13 @@
         <%= link_to "Log out", logout_path %>
       <% end -%>
     </div>
-    <% flash.keys.each do |key| %>
-      <%= content_tag :div, flash[key], :class => "flash #{key}" %>
-    <% end -%>
+    <% unless flash.keys.empty? %>
+      <div id="flash">
+        <% flash.keys.each do |key| %>
+          <%= content_tag :div, flash[key], :class => "flash #{key}" %>
+        <% end -%>
+      </div>
+    <% end %>
     <div id="content">
       <%= yield :layout %>
     </div>

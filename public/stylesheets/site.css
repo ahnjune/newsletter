@@ -6,6 +6,13 @@ body {
   margin: 0;
 }
 
+#flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 #header {
   background: black;
   padding: 5px;
@@ -99,6 +106,7 @@ label {
   padding: 10 10 10 15;
   color: white;
   font-weight: bold;
+  border-bottom: solid 2px white;
 }
 
 .flash.notice {
@@ -164,3 +172,4 @@ a.delete_tag {
   font-size: 12px;
   color: #aaa;
 }
+
