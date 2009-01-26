@@ -119,6 +119,7 @@ label {
 #navigation {
   padding: 5 5 5 10;
   background: black;
+  color: white;
 }
 
 #navigation a {

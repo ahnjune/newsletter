@@ -22,12 +22,13 @@
         <%= link_to "Areas of Interest", areas_path, :class => nav_class(:areas_of_interest) %>
         <%= link_to "Account", edit_account_path, :class => nav_class(:account) %>
         <%= link_to "Invite", new_invite_path, :class => nav_class(:invites) %>
-        <% if current_user.admin? %>
-          <%= link_to "Manage Feeds", admin_feeds_path, :class => nav_class(:feeds) %>
-          <%= link_to "Manage Areas", admin_areas_path, :class => nav_class(:areas) %>
-          <%= link_to "Manage Users", admin_users_path, :class => nav_class(:users) %>
-        <% end -%>
         <%= link_to "Log out", logout_path %>
+        <% if current_user.admin? %>
+          <%= link_to "[Feeds]", admin_feeds_path, :class => nav_class(:feeds) %>
+          <%= link_to "[Areas]", admin_areas_path, :class => nav_class(:areas) %>
+          <%= link_to "[Users]", admin_users_path, :class => nav_class(:users) %>
+          <%= link_to "[Amazon]", admin_amazon_search_path, :class => nav_class(:amazon_search) %>
+        <% end -%>
       <% end -%>
     </div>
     <% unless flash.keys.empty? %>

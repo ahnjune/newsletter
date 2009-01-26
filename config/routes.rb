@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :feed_items
     admin.resources :users
     admin.resources :areas
+    admin.resource  :amazon_search
     admin.root :controller => "feeds"
   end
 
