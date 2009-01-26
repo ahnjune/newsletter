@@ -18,6 +18,7 @@
     </div>
     <div id="navigation">
       <% if logged_in? %>
+        <%= link_to "Home", root_path, :class => nav_class(:recommendations) %>
         <%= link_to "Tags", tags_path, :class => nav_class(:tags) %>
         <%= link_to "Areas of Interest", areas_path, :class => nav_class(:areas_of_interest) %>
         <%= link_to "Account", edit_account_path, :class => nav_class(:account) %>
