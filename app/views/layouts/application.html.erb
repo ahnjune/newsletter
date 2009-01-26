@@ -19,9 +19,11 @@
     <div id="navigation">
       <% if @admin_area %>
         <%= link_to "Feeds", admin_feeds_path, :class => (@nav == :feeds ? "active" : nil) %>
-        <%= link_to "Section" %>
-        <%= link_to "Section" %>
       <% end %>
+      <% if logged_in? %>
+        <%= link_to "Account" %>
+        <%= link_to "Log out", logout_path %>
+      <% end -%>
     </div>
     <% flash.keys.each do |key| %>
       <%= content_tag :div, flash[key], :class => "flash #{key}" %>
