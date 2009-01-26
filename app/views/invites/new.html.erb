@@ -1,5 +1,10 @@
 <h2>Invite Others</h2>
 
+Please enter email addresses, one on each line.
+
 <% form_for :invite, @invite, :url => invites_path do |f| %>
-  <%= f.submit "Send Invites" %>
+  <%= f.text_area :emails, :rows => 5 %>  
+  <p>
+    <%= f.submit "Send Invites" %>
+  </p>
 <% end -%>
