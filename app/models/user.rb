@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   named_scope :ordered, lambda { |*sym| { :order => (sym.first || :email )}}
 
   def generate_recommendations
-    FeedItem.with_tags(tag_list).ordered
+    FeedItem.with_tags(tag_list).with_areas(areas).ordered
   end
 
   def name

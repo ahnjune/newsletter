@@ -11,5 +11,12 @@ class FeedItem < ActiveRecord::Base
       end.join(" OR "), *tags.flatten.map { |t| "%#{t}%"}]
     }
   }
+  
+  named_scope :with_areas, lambda { |*areas|
+    areas.flatten!
+    return {} if areas.empty?
+    {:include => {:feed => [:areas] },
+    :conditions => "areas.id IN (#{areas.flatten.map { |a| a.id }.join(',')})"}
+  }
 
 end
