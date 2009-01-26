@@ -21,7 +21,7 @@
 </table>
 
 <div class="links">
-  <%= link_to "Fetch", fetch_admin_feed_path(@feed) %>
+  <%= link_to "Update", fetch_admin_feed_path(@feed) %>
   <%= link_to "Edit", edit_admin_feed_path(@feed) %>
   <%= link_to "Delete", admin_feed_path(@feed), :confirm => "Are you sure?", :method => "delete" %>
   <%= render :partial => "back_to_feeds" %>
