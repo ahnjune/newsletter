@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation, :admin
 
+  named_scope :ordered, lambda { |*sym| { :order => (sym.first || :email )}}
+
 
   def add_tag(tag)
     unless tag.blank?

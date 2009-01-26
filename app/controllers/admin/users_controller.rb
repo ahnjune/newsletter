@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::BaseController
   before_filter :set_nav
   
   def index
-    @users = User.all
+    @users = User.ordered(:email)
   end
   
   private
