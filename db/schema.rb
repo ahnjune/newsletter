@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090125233821) do
+ActiveRecord::Schema.define(:version => 20090126012033) do
 
   create_table "feed_items", :force => true do |t|
     t.integer  "feed_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20090125233821) do
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
+    t.boolean  "admin",                                    :default => false
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

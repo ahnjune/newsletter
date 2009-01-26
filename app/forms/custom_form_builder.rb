@@ -1,6 +1,6 @@
 class CustomFormBuilder < ActionView::Helpers::FormBuilder
   
-  %w[text_field text_area password_field].each do |method_name|
+  %w[text_field text_area password_field check_box].each do |method_name|
     define_method method_name do |field_name, *args|
       options = args.extract_options!
       label = label(field_name)
