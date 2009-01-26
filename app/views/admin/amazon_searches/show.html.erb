@@ -4,3 +4,10 @@
   This is a test area that will allow you to search Amazon for particular keywords.
 </p>
 
+<% form_tag nil, :method => :get, :class => "noformat" do %>
+  <%= text_field_tag :query, params[:query] %>
+<% end %>
+
+<% unless @query.blank? %>
+  <h2>Search results for: <%= h @query %></h2>
+<% end -%>
