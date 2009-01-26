@@ -72,6 +72,13 @@ form {
   width: 500px;
 }
 
+form.tag {
+  margin: 15 0 0 0 ;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
 input {
   font-size: 16px;
 }

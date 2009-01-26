@@ -1,6 +1,6 @@
 <h2>Your Tags</h2>
 
-<% form_for :tag, @tag, :url => tags_path do |f| %>
+<% form_for :tag, @tag, :url => tags_path, :html => { :class => "tag" } do |f| %>
   New tag: <%= f.text_field :name %>
 <% end %>
 
