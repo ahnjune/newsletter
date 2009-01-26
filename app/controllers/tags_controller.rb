@@ -6,10 +6,14 @@ class TagsController < ApplicationController
   def create
     current_user.add_tag(params[:tag][:name])
     redirect_to tags_path
+  rescue Exception => e
+    flash.now[:error] = "Invalid tag: #{e}"
+    render :action => "index"
   end
   
   def destroy
-    current_user.remove_tag(params[:id])
+    tagging = current_user.taggings.find(params[:id])
+    tagging.destroy
     redirect_to tags_path
   end
   
