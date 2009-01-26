@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
 
   named_scope :ordered, lambda { |*sym| { :order => (sym.first || :email )}}
 
+  def generate_recommendations
+    FeedItem.ordered
+  end
+
   def name
     name = [first_name, last_name].compact.join(" ")
     [name, login, email].detect { |x| not x.blank? }
