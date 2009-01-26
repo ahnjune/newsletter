@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
 
   def name
     name = [first_name, last_name].compact.join(" ")
-    name || login || email
+    [name, login, email].detect { |x| not x.blank? }
   end
 
   def add_tag(tag)
