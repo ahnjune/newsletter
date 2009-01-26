@@ -31,6 +31,10 @@ class User < ActiveRecord::Base
 
   named_scope :ordered, lambda { |*sym| { :order => (sym.first || :email )}}
 
+  def name
+    name = [first_name, last_name].compact.join(" ")
+    name || login || email
+  end
 
   def add_tag(tag)
     unless tag.blank?
