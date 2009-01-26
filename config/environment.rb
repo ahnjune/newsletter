@@ -29,6 +29,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
 
   config.gem "feedtools", :version => " 0.2.29", :lib => "feed_tools"
+  config.gem "mislav-will_paginate", :lib => "will_paginate"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
