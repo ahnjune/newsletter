@@ -1,0 +1,181 @@
+--- !ruby/object:Gem::Specification 
+name: ruby-aws
+version: !ruby/object:Gem::Version 
+  version: 1.2.0
+platform: ruby
+authors: 
+- David J Parrott
+autorequire: 
+bindir: bin
+cert_chain: 
+- |
+  -----BEGIN CERTIFICATE-----
+  MIIDSjCCAjKgAwIBAgIBADANBgkqhkiG9w0BAQUFADBLMRkwFwYDVQQDDBBydWJ5
+  LWF3cy1kZXZlbG9wMRkwFwYKCZImiZPyLGQBGRYJcnVieWZvcmdlMRMwEQYKCZIm
+  iZPyLGQBGRYDb3JnMB4XDTA3MDgxNDE1NDkwNFoXDTA4MDgxMzE1NDkwNFowSzEZ
+  MBcGA1UEAwwQcnVieS1hd3MtZGV2ZWxvcDEZMBcGCgmSJomT8ixkARkWCXJ1Ynlm
+  b3JnZTETMBEGCgmSJomT8ixkARkWA29yZzCCASIwDQYJKoZIhvcNAQEBBQADggEP
+  ADCCAQoCggEBAMJ6D+5H3x+H81ugh3PcQhgA+GkZBqBcebjwKTCUdUO6TOg6PHwP
+  NcJTuAO4gI47EHkkR47kDdyHzdJIs2lVWctgut5PAT/Q3PsyyUfg3vQL9jhf994G
+  kpNlawivDSo2xubzb1eBeVIF3dtMek4ttA7T1ickv/7oYQrhTpv3AgPoVVcxcva/
+  DPXXBgepcMhdj0h4a+5YAW2t1m4DLYhX2tbzL2sLBZm07awUrOiUkJ9FalN2nevq
+  sdI6KFVaPf94iRDq7OoMCEPS5JwGzDJ5otIt6twj2cKfqOiUJD2Fgb6Y4a80KSXF
+  16kC+80frHhiIb+sGhANsgo8wB0L+BmMgyECAwEAAaM5MDcwCQYDVR0TBAIwADAL
+  BgNVHQ8EBAMCBLAwHQYDVR0OBBYEFN8sX6rx1b95BqTPZMSlDkGHUQByMA0GCSqG
+  SIb3DQEBBQUAA4IBAQBk45aZc7VyWfQKnh1nlEopTw/blxF1odJ9q1DRZD3018FF
+  p7lHmIWuotmFezoVMQ6Y+ns78AbxxAHVAFjsaaGu1xuVel39O0GCh0fWaLuxhcn5
+  9Z2fhDQ5Alme5PjQrNDgBY3I+eLTQkshdvb7Fxe3oeLrRBmiSMieonm7+m/mVk13
+  417S+x32p+M+o+cvRVsqYCNGvZtLcCgRK5TtKc6ReaTHEqTuSIbhHZwgst+dmy0I
+  6MlKbfXY0OJ09HtNmsBrhmt7zWfXYjihBJTBjfdTvFkDwLXMh4erHfVXd4E8gZrA
+  Hu1jTNYR/U0lKAbDeJBWWk4ExsuHuXR8SJBZBGZz
+  -----END CERTIFICATE-----
+
+date: 2007-10-11 00:00:00 -04:00
+default_executable: ruby-aws
+dependencies: 
+- !ruby/object:Gem::Dependency 
+  name: highline
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 1.2.7
+    version: 
+- !ruby/object:Gem::Dependency 
+  name: hoe
+  type: :runtime
+  version_requirement: 
+  version_requirements: !ruby/object:Gem::Requirement 
+    requirements: 
+    - - ">="
+      - !ruby/object:Gem::Version 
+        version: 1.3.0
+    version: 
+description: "Libraries for Amazon Web Services (ruby-aws) is a set of libraries and tools designed to make it easier for you to build solutions leveraging Amazon Web Services like Amazon Mechanical Turk.  The goals of the libraries are:  * To abstract you from the \"muck\" of using web services * To simplify using the various Amazon Web Service APIs * To allow you to focus more on solving the business problem and less on managing technical details"
+email: ruby-aws-develop@rubyforge.org
+executables: 
+- ruby-aws
+extensions: []
+
+extra_rdoc_files: 
+- History.txt
+- LICENSE.txt
+- Manifest.txt
+- NOTICE.txt
+- README.txt
+files: 
+- History.txt
+- LICENSE.txt
+- Manifest.txt
+- NOTICE.txt
+- README.txt
+- Rakefile
+- bin/ruby-aws
+- lib/amazon/util.rb
+- lib/amazon/util/binder.rb
+- lib/amazon/util/data_reader.rb
+- lib/amazon/util/filter_chain.rb
+- lib/amazon/util/hash_nesting.rb
+- lib/amazon/util/lazy_results.rb
+- lib/amazon/util/logging.rb
+- lib/amazon/util/paginated_iterator.rb
+- lib/amazon/util/proactive_results.rb
+- lib/amazon/util/threadpool.rb
+- lib/amazon/util/user_data_store.rb
+- lib/amazon/webservices/mechanical_turk.rb
+- lib/amazon/webservices/mechanical_turk_requester.rb
+- lib/amazon/webservices/mturk/mechanical_turk_error_handler.rb
+- lib/amazon/webservices/mturk/question_generator.rb
+- lib/amazon/webservices/util/amazon_authentication_relay.rb
+- lib/amazon/webservices/util/command_line.rb
+- lib/amazon/webservices/util/convenience_wrapper.rb
+- lib/amazon/webservices/util/filter_proxy.rb
+- lib/amazon/webservices/util/mock_transport.rb
+- lib/amazon/webservices/util/request_signer.rb
+- lib/amazon/webservices/util/rest_transport.rb
+- lib/amazon/webservices/util/soap_simplifier.rb
+- lib/amazon/webservices/util/soap_transport.rb
+- lib/amazon/webservices/util/soap_transport_header_handler.rb
+- lib/amazon/webservices/util/unknown_result_exception.rb
+- lib/amazon/webservices/util/validation_exception.rb
+- lib/amazon/webservices/util/xml_simplifier.rb
+- lib/ruby-aws.rb
+- lib/ruby-aws/version.rb
+- samples/mturk/best_image/BestImage.rb
+- samples/mturk/best_image/best_image.properties
+- samples/mturk/best_image/best_image.question
+- samples/mturk/blank_slate/BlankSlate.rb
+- samples/mturk/blank_slate/BlankSlate_multithreaded.rb
+- samples/mturk/helloworld/MTurkHelloWorld.rb
+- samples/mturk/helloworld/mturk.yml
+- samples/mturk/reviewer/Reviewer.rb
+- samples/mturk/reviewer/mturk.yml
+- samples/mturk/simple_survey/SimpleSurvey.rb
+- samples/mturk/simple_survey/simple_survey.question
+- samples/mturk/site_category/SiteCategory.rb
+- samples/mturk/site_category/externalpage.htm
+- samples/mturk/site_category/site_category.input
+- samples/mturk/site_category/site_category.properties
+- samples/mturk/site_category/site_category.question
+- test/mturk/test_changehittypeofhit.rb
+- test/mturk/test_error_handler.rb
+- test/mturk/test_mechanical_turk_requester.rb
+- test/mturk/test_mock_mechanical_turk_requester.rb
+- test/test_ruby-aws.rb
+- test/unit/test_binder.rb
+- test/unit/test_data_reader.rb
+- test/unit/test_exceptions.rb
+- test/unit/test_hash_nesting.rb
+- test/unit/test_lazy_results.rb
+- test/unit/test_mock_transport.rb
+- test/unit/test_paginated_iterator.rb
+- test/unit/test_proactive_results.rb
+- test/unit/test_question_generator.rb
+- test/unit/test_threadpool.rb
+- test/unit/test_user_data_store.rb
+has_rdoc: true
+homepage: http://rubyforge.org/projects/ruby-aws/
+post_install_message: 
+rdoc_options: 
+- --main
+- README.txt
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">"
+    - !ruby/object:Gem::Version 
+      version: 0.0.0
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: ruby-aws
+rubygems_version: 1.3.1
+signing_key: 
+specification_version: 1
+summary: Ruby libraries for working with Amazon Web Services ( Mechanical Turk )
+test_files: 
+- test/unit/test_lazy_results.rb
+- test/unit/test_exceptions.rb
+- test/unit/test_threadpool.rb
+- test/unit/test_binder.rb
+- test/unit/test_user_data_store.rb
+- test/unit/test_mock_transport.rb
+- test/unit/test_paginated_iterator.rb
+- test/unit/test_hash_nesting.rb
+- test/unit/test_data_reader.rb
+- test/unit/test_proactive_results.rb
+- test/unit/test_question_generator.rb
+- test/mturk/test_mock_mechanical_turk_requester.rb
+- test/mturk/test_changehittypeofhit.rb
+- test/mturk/test_error_handler.rb
+- test/mturk/test_mechanical_turk_requester.rb
+- test/test_ruby-aws.rb
