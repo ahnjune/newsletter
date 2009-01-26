@@ -19,7 +19,7 @@
     <div id="navigation">
       <% if logged_in? %>
         <%= link_to "Tags", tags_path, :class => nav_class(:tags) %>
-        <%= link_to "Areas of Interest" %>
+        <%= link_to "Areas of Interest", areas_path, :class => nav_class(:areas_of_interest) %>
         <%= link_to "Account", edit_account_path, :class => nav_class(:account) %>
         <%= link_to "Invite", new_invite_path, :class => nav_class(:invites) %>
         <% if current_user.admin? %>

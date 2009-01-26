@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :account
   map.resources :tags
   map.resources :invites
+  map.resources :areas
 
   map.root :controller => "tags"
 

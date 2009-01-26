@@ -1,0 +1,23 @@
+<h2>Your Areas of Interest</h2>
+
+<p>
+  Select which areas most interest you.  These areas will be used to send you relevant
+  information.
+</p>
+
+<% form_for :user, current_user, :url => areas_path do |f| %>
+
+  <ul>
+    <% for area in Area.ordered %>
+    <li>
+      <%= check_box_tag "user[area_ids][]", area.id, current_user.areas.include?(area)%> 
+      <%= h area.name %>
+    </li>
+    <% end -%>
+    <%= hidden_field_tag "user[area_ids][]","" %>
+  </ul>
+  
+
+  <%= f.submit "Update Interests" %>
+
+<% end -%>

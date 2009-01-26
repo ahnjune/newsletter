@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   include Authentication::ByCookieToken
 
   has_many :assigned_areas, :as => "owner", :dependent => :destroy
+  has_many :areas, :through => :assigned_areas
 
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation, :admin, :first_name, :last_name, :birthday, :gender, :occupation
+  attr_accessible :login, :email, :name, :password, :password_confirmation, :admin, :first_name, :last_name, :birthday, :gender, :occupation, :area_ids
 
   named_scope :ordered, lambda { |*sym| { :order => (sym.first || :email )}}
 
