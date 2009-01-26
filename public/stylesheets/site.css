@@ -149,6 +149,13 @@ th {
 }
 
 td, th {
-  padding: 10 10 10 10;
-  
+  padding: 10 10 10 10;  
+}
+
+tr.odd {
+  background-color: #e0fdff;
+}
+
+tr th {
+  background-color: none;
 }

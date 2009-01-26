@@ -6,4 +6,16 @@ Event.observe(window, "load", function() {
   if (field) {
     field.focus();
   }
+  
+  $$('table').each(function(table) {
+    var odd = true;
+    table.select("tr").each(function(tr) {
+      var ths = tr.select("th");
+      if (ths.length == 0) {
+        tr.addClassName(odd ? "odd" : "even");
+        odd = !odd;
+      }
+    })
+  })
 })
+
