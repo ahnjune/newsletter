@@ -1,0 +1,10 @@
+<%= f.text_field :login %>
+<%= f.text_field :email %>
+<%= f.text_field :first_name %>
+<%= f.text_field :last_name %>
+<%= f.date_select :birthday, :start_year => 1940, :order => [:month, :day, :year], :default => { :day => 1, :month => 1 } %>
+<%= f.select :gender, %w[Male Female] %>
+<%= f.text_field :occupation %>
+<%= f.password_field :password %>
+<%= f.password_field :password_confirmation %>
+<%= f.check_box :admin %>
