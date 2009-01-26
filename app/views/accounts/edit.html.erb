@@ -2,10 +2,15 @@
 
 <% custom_form_for :user, current_user, :url => account_path, :html => { :method => :put } do |f| %>
 
-  <%= f.text_field :login %>
-  <%= f.text_field :email %>
-  <%= f.check_box :admin %>
+<%= f.text_field :login %>
+<%= f.text_field :email %>
+<%= f.text_field :first_name %>
+<%= f.text_field :last_name %>
+<%= f.date_select :birthday %>
+<%= f.text_field :occupation %>
+<%= f.select :gender, %w[Male Female] %>
+<%= f.check_box :admin %>
 
-  <%= f.submit "Update" %>
+<%= f.submit "Update" %>
 
 <% end -%>
