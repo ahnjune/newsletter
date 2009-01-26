@@ -9,7 +9,7 @@
   <% for feed in @feeds %>
   <tr>
     <td>
-      <%= link_to h(feed.title), admin_feed_path(feed) %>
+      <%= link_to h(truncate(feed.title, 50)), admin_feed_path(feed) %>
     </td>
     <td>
       <%= datetime feed.created_at %>

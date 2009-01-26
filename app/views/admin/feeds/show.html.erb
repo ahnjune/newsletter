@@ -2,13 +2,27 @@
 <h3><%= h @feed.url %></h3>
 
 <h2>Items</h2>
-<ul class="feed_items">
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Created</th>
+    <th>Updated</th>
+  </tr>
   <% for item in @feed.feed_items %>
-    <li>
-      <%= link_to h(item.title), admin_feed_item_path(item) %>
-    </li>
+    <tr>
+      <td>
+        <%= link_to h(truncate(item.title, 50)), admin_feed_item_path(item) %>
+      </td>
+      <td>
+        <%= datetime item.created_at %>
+      </td>
+      <td>
+        <%= datetime item.updated_at %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
 
 <div class="links">
   <%= link_to "Fetch", fetch_admin_feed_path(@feed) %>
