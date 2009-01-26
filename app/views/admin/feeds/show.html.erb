@@ -6,19 +6,15 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Created</th>
-    <th>Updated</th>
+    <th>Published</th>
   </tr>
-  <% for item in @feed.feed_items %>
+  <% for item in @feed.feed_items.ordered %>
     <tr>
       <td>
         <%= link_to h(truncate(item.title, 50)), admin_feed_item_path(item) %>
       </td>
       <td>
-        <%= datetime item.created_at %>
-      </td>
-      <td>
-        <%= datetime item.updated_at %>
+        <%= datetime item.published_at %>
       </td>
     </tr>
   <% end %>

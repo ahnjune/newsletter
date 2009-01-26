@@ -35,12 +35,14 @@ class Feed < ActiveRecord::Base
     if feed_item = feed_items.detect { |feed_item| feed_item.link == item.link}
       # update the feed item
       feed_item.update_attribute :content, item.content
+      feed_item.update_attribute :published_at, item.published
     else
       # add the feed item
       feed_items.push FeedItem.new({
         :feed => self,
         :title => item.title,
         :link => item.link,
+        :published_at => item.published,
         :content => item.content
       })
     end
