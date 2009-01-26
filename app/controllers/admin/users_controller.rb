@@ -4,7 +4,7 @@ class Admin::UsersController < Admin::BaseController
   before_filter :set_nav
   
   def index
-    @users = User.ordered(:email)
+    @users = User.ordered(:email).paginate(:page => params[:page])
   end
   
   private

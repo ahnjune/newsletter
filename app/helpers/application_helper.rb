@@ -13,4 +13,10 @@ module ApplicationHelper
     @nav == nav_name ? "active" : nil
   end
   
+  def datetime(time)
+    if time
+      time.strftime "%m/%d/%Y %I:%M:%p"
+    end
+  end
+  
 end

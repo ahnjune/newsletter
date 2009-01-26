@@ -1,8 +1,25 @@
 <h2>Feeds</h2>
 
-<ul>
-  <%= render :partial => "feed", :collection => @feeds %>
-</ul>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Created</th>
+    <th>Updated</th>
+  </tr>
+  <% for feed in @feeds %>
+  <tr>
+    <td>
+      <%= link_to h(feed.title), admin_feed_path(feed) %>
+    </td>
+    <td>
+      <%= datetime feed.created_at %>
+    </td>
+    <td>
+      <%= datetime feed.updated_at %>
+    </td>
+  </tr>
+  <% end -%>
+</table>
 
 <div class="links">
   <%= link_to "New Feed", new_admin_feed_path %>  

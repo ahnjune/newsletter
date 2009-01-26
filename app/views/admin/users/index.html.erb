@@ -1,5 +1,20 @@
 <h2>Users</h2>
 
-<% for user in @users %>
-  <%= user.email %>
-<% end -%>
+<%= will_paginate @users %>
+
+<table>
+  <tr>
+    <th>email</th>
+    <th>login</th>
+    <th>created</th>
+    <th>updated</th>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%= h user.email %></td>
+      <td><%= h user.login %></td>
+      <td><%= user.created_at %></td>
+      <td><%= user.updated_at %></td>
+    </tr>
+  <% end -%>
+</table>
