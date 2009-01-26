@@ -19,7 +19,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tags
   map.resources :invites
   map.resources :areas
+  map.resource :recommendations
 
-  map.root :controller => "tags"
+  map.root :controller => "recommendations", :action => "show"
 
 end
