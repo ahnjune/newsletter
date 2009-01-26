@@ -4,14 +4,14 @@
 
 <table>
   <tr>
-    <th>email</th>
+    <th>name</th>
     <th>login</th>
     <th>created</th>
     <th>updated</th>
   </tr>
   <% for user in @users %>
     <tr>
-      <td><%= h user.email %></td>
+      <td><%= link_to h(user.name), admin_user_path(user) %></td>
       <td><%= h user.login %></td>
       <td><%= datetime user.created_at %></td>
       <td><%= datetime user.updated_at %></td>
