@@ -8,6 +8,22 @@
   <%= text_field_tag :query, params[:query] %>
 <% end %>
 
-<% unless @query.blank? %>
+<% if @search %>
   <h2>Search results for: <%= h @query %></h2>
+  
+  <% if @search.items.empty? %>
+    No results
+  <% end -%>
+  
+  <ul class="amazon">
+    <% for item in @search.items %>
+      <% item_attributes = item.item_attributes[0] %>
+      <li>
+        <%= h item_attributes.title %>
+        (<%= h item_attributes.list_price[0].formatted_price %>)
+      </li>
+    <% end %>
+  </ul>
+  
 <% end -%>
+
