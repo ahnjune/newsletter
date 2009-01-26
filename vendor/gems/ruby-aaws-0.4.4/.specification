@@ -1,0 +1,102 @@
+--- !ruby/object:Gem::Specification 
+name: ruby-aaws
+version: !ruby/object:Gem::Version 
+  version: 0.4.4
+platform: ruby
+authors: 
+- Ian Macdonald
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2008-10-02 00:00:00 -04:00
+default_executable: 
+dependencies: []
+
+description: 
+email: ian@caliban.org
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- COPYING
+- NEWS
+- README
+- README.rdoc
+files: 
+- example/customer_content_lookup1
+- example/browse_node_lookup1
+- example/item_lookup1
+- example/example1
+- example/customer_content_search1
+- example/help1
+- example/multiple_operation1
+- example/item_lookup2
+- example/item_search1
+- example/item_search2
+- example/item_search3
+- example/list_lookup1
+- example/list_search1
+- example/seller_listing_lookup1
+- example/seller_listing_search1
+- example/seller_lookup1
+- example/shopping_cart1
+- example/similarity_lookup1
+- example/tag_lookup1
+- example/transaction_lookup1
+- lib/amazon.rb
+- lib/amazon/aws/search.rb
+- lib/amazon/aws/cache.rb
+- lib/amazon/aws/shoppingcart.rb
+- lib/amazon/locale.rb
+- lib/amazon/aws.rb
+- test/tc_amazon.rb
+- test/setup.rb
+- test/tc_item_search.rb
+- test/tc_aws.rb
+- test/tc_multiple_operation.rb
+- test/tc_operation_request.rb
+- test/tc_shopping_cart.rb
+- test/ts_aws.rb
+- test/tc_serialisation.rb
+- COPYING
+- NEWS
+- README
+- README.rdoc
+has_rdoc: true
+homepage: http://www.caliban.org/ruby/ruby-aws/
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: 1.8.6
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: Ruby/(A)AWS
+rubygems_version: 1.3.1
+signing_key: 
+specification_version: 2
+summary: Ruby interface to Amazon Associates Web Services
+test_files: 
+- test/tc_amazon.rb
+- test/setup.rb
+- test/tc_item_search.rb
+- test/tc_aws.rb
+- test/tc_multiple_operation.rb
+- test/tc_operation_request.rb
+- test/tc_shopping_cart.rb
+- test/ts_aws.rb
+- test/tc_serialisation.rb
