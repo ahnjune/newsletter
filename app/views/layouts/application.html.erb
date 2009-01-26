@@ -19,9 +19,9 @@
     <div id="navigation">
       <% if logged_in? %>
         <%= link_to "Account", edit_account_path, :class => nav_class(:account) %>
-        <%= link_to "Invite others" %>
+        <%= link_to "Tags", tags_path, :class => nav_class(:tags) %>
         <% if current_user.admin? %>
-        <%= link_to "Feeds", admin_feeds_path, :class => nav_class(:feeds) %>
+          <%= link_to "Feeds", admin_feeds_path, :class => nav_class(:feeds) %>
         <% end -%>
         <%= link_to "Log out", logout_path %>
       <% end -%>

@@ -14,6 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resource :session
   map.resource :account
+  map.resources :tags
 
   map.root :controller => "accounts", :action => "edit"
 
