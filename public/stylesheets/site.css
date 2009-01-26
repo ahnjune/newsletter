@@ -159,3 +159,8 @@ tr.odd {
 tr th {
   background-color: none;
 }
+
+a.delete_tag {
+  font-size: 12px;
+  color: #aaa;
+}

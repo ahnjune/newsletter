@@ -16,7 +16,7 @@
     <li>
       <%= image_tag "icons/tag.png" %>
       <%= h tag %>
-      <%= link_to "delete", tag_path(tag), :method => "delete" %>
+      <%= link_to "delete", tag_path(tag), :method => "delete", :class => "delete_tag" %>
     </li>
   <% end %>
 </ul>
