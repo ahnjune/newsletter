@@ -8,5 +8,9 @@ module ApplicationHelper
       end
     end
   end
+
+  def nav_class(nav_name)
+    @nav == nav_name ? "active" : nil
+  end
   
 end

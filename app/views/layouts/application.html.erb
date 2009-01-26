@@ -18,10 +18,11 @@
     </div>
     <div id="navigation">
       <% if logged_in? %>
+        <%= link_to "Account", edit_account_path, :class => nav_class(:account) %>
+        <%= link_to "Invite others" %>
         <% if current_user.admin? %>
-        <%= link_to "Feeds", admin_feeds_path, :class => (@nav == :feeds ? "active" : nil) %>
+        <%= link_to "Feeds", admin_feeds_path, :class => nav_class(:feeds) %>
         <% end -%>
-        <%= link_to "Account", edit_account_path, :class => (@nav == :account ? "active" : nil)%>
         <%= link_to "Log out", logout_path %>
       <% end -%>
     </div>
