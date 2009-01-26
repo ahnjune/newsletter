@@ -1,12 +1,20 @@
 <h2>Your Tags</h2>
 
+<p>
+  Your tags are what allows Thinkful to match you up with the most relevant information.
+  Add a tag by submitting the following form. You may also delete any tags that are no
+  longer relevant to you.
+</p>
+
 <% form_for :tag, @tag, :url => tags_path, :html => { :class => "tag" } do |f| %>
-  New tag: <%= f.text_field :name %>
+  <%= f.text_field :name %>
+  <%= submit_tag "Add New Tag" %>
 <% end %>
 
 <ul id="tags">
   <% for tag in current_user.tag_list.sort do %>
     <li>
+      <%= image_tag "icons/tag.png" %>
       <%= h tag %>
       <%= link_to "delete", tag_path(tag), :method => "delete" %>
     </li>
