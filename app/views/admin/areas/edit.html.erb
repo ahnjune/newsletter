@@ -1,0 +1,6 @@
+<h2>Edit Area</h2>
+
+<% custom_form_for :area, @area, :url => admin_area_path(@area), :html => { :method => :put } do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit "Update Area" %>
+<% end -%>

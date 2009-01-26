@@ -6,7 +6,7 @@
   longer relevant to you.
 </p>
 
-<% form_for :tag, @tag, :url => tags_path, :html => { :class => "tag" } do |f| %>
+<% form_for :tag, @tag, :url => tags_path, :html => { :class => "noformat" } do |f| %>
   <%= f.text_field :name %>
   <%= submit_tag "Add New Tag" %>
 <% end %>
@@ -16,7 +16,7 @@
     <li>
       <%= image_tag "icons/tag.png" %>
       <%= h tagging.tag.name %>
-      <%= link_to "delete", tag_path(tagging), :method => "delete", :class => "delete_tag" %>
+      <%= link_to "delete", tag_path(tagging), :method => "delete", :class => "delete" %>
     </li>
   <% end %>
 </ul>

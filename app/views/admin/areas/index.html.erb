@@ -1,1 +1,18 @@
 <h2>Areas</h2>
+
+<% form_for :area, @area, :url => admin_areas_path, :html => { :class => "noformat" } do |f| %>
+  <%= f.text_field :name %>
+  <%= submit_tag "Add New Area" %>
+<% end %>
+
+
+<ul id="areas">
+  <% for area in @areas do %>
+    <li>
+      <%= image_tag "icons/area.png" %>
+      <%= h area.name %>
+      <%= link_to "edit", edit_admin_area_path(area), :class => "edit" %>
+      <%= link_to "delete", admin_area_path(area), :method => "delete", :class => "delete" %>
+    </li>
+  <% end %>
+</ul>
