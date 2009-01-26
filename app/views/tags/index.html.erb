@@ -1,1 +1,14 @@
 <h2>Your Tags</h2>
+
+<% form_for :tag, @tag, :url => tags_path do |f| %>
+  New tag: <%= f.text_field :name %>
+<% end %>
+
+<ul id="tags">
+  <% for tag in current_user.tag_list.sort do %>
+    <li>
+      <%= h tag %>
+      <%= link_to "delete", tag_path(tag), :method => "delete" %>
+    </li>
+  <% end %>
+</ul>
