@@ -25,6 +25,12 @@ class Admin::AreasController < Admin::BaseController
     render :action => "index"
   end
   
+  def destroy
+    @area.destroy
+    flash[:notice] = "Area deleted"
+    redirect_to :action => "index"
+  end
+  
   private
 
   def load_area

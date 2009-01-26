@@ -1,4 +1,16 @@
 <%= error_messages_for :feed %>
 
 <%= f.text_field :url %>
+
+<h3>Areas of Interest</h3>
+<ul>
+  <% for area in Area.ordered %>
+  <li>
+    <%= check_box_tag "feed[area_ids][]", area.id, @feed.areas.include?(area)%> 
+    <%= h area.name %>
+  </li>
+  <% end -%>
+  <%= hidden_field_tag "feed[area_ids][]","" %>
+</ul>
+
 <%= f.submit "Save" %>

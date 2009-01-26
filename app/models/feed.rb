@@ -2,6 +2,7 @@ class Feed < ActiveRecord::Base
   
   has_many :feed_items, :dependent => :destroy
   has_many :assigned_areas, :as => "owner", :dependent => :destroy
+  has_many :areas, :through => :assigned_areas
   
   validates_presence_of :url  
   validates_uniqueness_of :url
@@ -20,6 +21,7 @@ class Feed < ActiveRecord::Base
   end
 
   def fetch
+    return if url.blank?
     returning FeedTools::Feed.open(url) do |fetched|
       self.title = fetched.title
       fetched.items.each do |item|
