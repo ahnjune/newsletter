@@ -1,1 +1,10 @@
 <h2>Account Details</h2>
+
+<% custom_form_for :user, current_user, :url => account_path, :html => { :method => :put } do |f| %>
+
+  <%= f.text_field :login %>
+  <%= f.text_field :email %>
+
+  <%= f.submit "Update" %>
+
+<% end -%>
