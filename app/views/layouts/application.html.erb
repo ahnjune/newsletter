@@ -17,11 +17,9 @@
       <% end %>
     </div>
     <div id="navigation">
-      <% if @admin_area %>
-        <%= link_to "Feeds", admin_feeds_path, :class => (@nav == :feeds ? "active" : nil) %>
-      <% end %>
       <% if logged_in? %>
-        <%= link_to "Account" %>
+        <%= link_to "Feeds", admin_feeds_path, :class => (@nav == :feeds ? "active" : nil) %>
+        <%= link_to "Account", edit_account_path, :class => (@nav == :account ? "active" : nil)%>
         <%= link_to "Log out", logout_path %>
       <% end -%>
     </div>

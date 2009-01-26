@@ -13,7 +13,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :users
   map.resource :session
+  map.resource :account
 
-  map.root :controller => "admin/feeds"
+  map.root :controller => "accounts", :action => "edit"
 
 end
