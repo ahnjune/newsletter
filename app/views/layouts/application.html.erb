@@ -18,8 +18,8 @@
     </div>
     <div id="navigation">
       <% if logged_in? %>
-        <%= link_to "Account", edit_account_path, :class => nav_class(:account) %>
         <%= link_to "Tags", tags_path, :class => nav_class(:tags) %>
+        <%= link_to "Account", edit_account_path, :class => nav_class(:account) %>
         <%= link_to "Invite", new_invite_path, :class => nav_class(:invites) %>
         <% if current_user.admin? %>
           <%= link_to "Feeds", admin_feeds_path, :class => nav_class(:feeds) %>
