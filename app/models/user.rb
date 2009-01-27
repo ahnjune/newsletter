@@ -49,7 +49,11 @@ class User < ActiveRecord::Base
   
   # return an array of AmazonItem
   def recommended_amazon_items
-    AmazonItem.search_books_by_keywords(tag_list)
+    existing_asins = recommendations.select { |r| r.recommendable.respond_to?(:asin) }.map { |r| r.recommendable.asin }
+    AmazonItem.search_books_by_keywords(tag_list).reject do |amazon_item|
+      breakpoint
+      existing_asins.include?(amazon_item.asin)
+    end
   end
 
   # return an array of FeedItem

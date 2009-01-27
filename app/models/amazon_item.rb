@@ -40,6 +40,9 @@ class AmazonItem < ActiveRecord::Base
   # Instance Methods -----------------------------------------------------------
   
   def update_from_amazon(item)
+    attributes = item.item_attributes[0]
+    update_attribute :title, attributes.title.to_s
   end
+  
   
 end
