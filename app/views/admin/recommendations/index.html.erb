@@ -1,2 +1,4 @@
 <h2>Recommendations for <%= @user.name %></h2>
 
+<%= will_paginate @recommendations %>
+<%= render :partial => "recommendations/recommendations", :object => @recommendations %>

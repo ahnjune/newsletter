@@ -8,13 +8,4 @@
   </p>
 <% end -%>
 
-<p>
-  <%= will_paginate @recommendations %>
-</p>
-
-<ul id="recommendations">
-  <% for recommendation in @recommendations %>
-    <%= render :partial => recommendation.recommendable.class.name.underscore, 
-               :object => recommendation.recommendable %>
-  <% end %>
-</ul>
+<%= render :partial => "recommendations", :object => @recommendations %>
