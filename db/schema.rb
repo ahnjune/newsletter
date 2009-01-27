@@ -9,13 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090127141635) do
+ActiveRecord::Schema.define(:version => 20090127155114) do
 
   create_table "amazon_items", :force => true do |t|
-    t.string   "amazon_title_id"
+    t.string   "asin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "amazon_items", ["asin"], :name => "index_amazon_items_on_asin"
 
   create_table "areas", :force => true do |t|
     t.string   "name"

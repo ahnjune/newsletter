@@ -47,10 +47,12 @@ class User < ActiveRecord::Base
     end
   end
   
+  # return an array of AmazonItem
   def recommended_amazon_items
     []
   end
-  
+
+  # return an array of FeedItem
   def recommended_feed_items
     FeedItem.with_tags(tag_list).with_areas(areas).ordered.limit(10).unseen_by(self)
   end
