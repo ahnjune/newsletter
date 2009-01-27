@@ -30,5 +30,6 @@
 </ul>
 
 <div class="links">
+  <%= link_to "Delete", admin_user_path(@user), :confirm => "Are you sure?", :method => :delete %>
   <%= link_to "Back to Users", admin_users_path %>
 </div>

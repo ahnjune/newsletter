@@ -7,6 +7,12 @@ class Admin::UsersController < Admin::BaseController
     @users = User.ordered(:email).paginate(:page => params[:page])
   end
   
+  def destroy
+    @user.destroy
+    flash[:notice] = "User deleted"
+    redirect_to :action => "index"
+  end
+  
   private
   
   def load_user
