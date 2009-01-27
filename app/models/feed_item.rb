@@ -11,7 +11,7 @@ class FeedItem < ActiveRecord::Base
   named_scope :with_tags, lambda { |*tags|
     tags.flatten!
     { :conditions => [tags.map do |tag|
-        "content LIKE ? OR title LIKE ?"
+        "feed_items.content LIKE ? OR feed_items.title LIKE ?"
       end.join(" OR "), *tags.map { |t| ["%#{t}%","%#{t}%"] }.flatten]
     }
   }

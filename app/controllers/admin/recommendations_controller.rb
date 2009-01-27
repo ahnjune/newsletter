@@ -5,7 +5,7 @@ class Admin::RecommendationsController < Admin::BaseController
   before_filter :load_user
   
   def show
-    @recommendations = @user.recommendations.ordered.paginate(:page => params[:page], :per_page => 25)
+    @recommendations = @user.recommendations.optimized.ordered.paginate(:page => params[:page], :per_page => 25)
   end
   
   def create
