@@ -17,7 +17,7 @@ class AmazonItem < ActiveRecord::Base
     def search(area, query, limit=5)
       logger.info "Performing Amazon search in #{area}: #{query.inspect}"
       items = AmazonSearch.new(area, query).items
-      items.map { |item| store_or_lookup(item) }.compact[(0...5)]
+      items.map { |item| store_or_lookup(item) }.compact
     end
 
     # takes a raw item from the amazon search and if it is found in the database, it returns

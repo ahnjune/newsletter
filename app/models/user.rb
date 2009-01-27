@@ -52,9 +52,10 @@ class User < ActiveRecord::Base
   # return an array of AmazonItem
   def recommended_amazon_items
     existing_asins = recommendations.select { |r| r.recommendable.respond_to?(:asin) }.map { |r| r.recommendable.asin }
-    AmazonItem.search_books_by_keywords(tag_list).reject do |amazon_item|
+    items = AmazonItem.search_books_by_keywords(tag_list).reject do |amazon_item|
       existing_asins.include?(amazon_item.asin)
     end
+    items[(0...5)]
   end
 
   # return an array of FeedItem
