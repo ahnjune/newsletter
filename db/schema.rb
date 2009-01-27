@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090126161726) do
+ActiveRecord::Schema.define(:version => 20090127130817) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(:version => 20090126161726) do
     t.text     "content"
     t.datetime "published_at"
   end
+
+  add_index "feed_items", ["content"], :name => "index_feed_items_on_content"
+  add_index "feed_items", ["title"], :name => "index_feed_items_on_title"
 
   create_table "feeds", :force => true do |t|
     t.string   "title"
