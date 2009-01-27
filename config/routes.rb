@@ -3,7 +3,9 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :feeds, :member => "fetch", :collection => "fetch_all"
     admin.resources :feed_items
-    admin.resources :users
+    admin.resources :users do |users|
+      users.resources :recommendations
+    end
     admin.resources :areas
     admin.resource  :amazon_search
     admin.root :controller => "feeds"
