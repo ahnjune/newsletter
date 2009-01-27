@@ -1,5 +1,15 @@
 <%= image_tag "icons/rss.png" %>
 <%= link_to_function h(feed_item.title), "Effect.toggle($(this).next(), 'blind', { duration: 0.5 })", :class => "recommendation" %>
 <div class="excerpt" style="display: none;">
+  <% unless [feed_item.number, feed_item.volume].all? { |f| f.blank? } %>
+    <ul>
+      <% if feed_item.number %>
+        <li>Number: <%= h feed_item.number %></li>
+      <% end %>
+      <% if feed_item.volume %>
+        <li>Volume: <%= h feed_item.volume %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= sanitize feed_item.content %>
 </div>

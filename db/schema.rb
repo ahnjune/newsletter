@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090127163145) do
+ActiveRecord::Schema.define(:version => 20090127165641) do
 
   create_table "amazon_items", :force => true do |t|
     t.string   "asin"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20090127163145) do
     t.datetime "updated_at"
     t.text     "content"
     t.datetime "published_at"
+    t.string   "number"
+    t.string   "volume"
   end
 
   add_index "feed_items", ["content"], :name => "index_feed_items_on_content"

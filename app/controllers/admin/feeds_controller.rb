@@ -22,6 +22,7 @@ class Admin::FeedsController < Admin::BaseController
   end
   
   def new
+    @feed = Feed.new
   end
   
   def create

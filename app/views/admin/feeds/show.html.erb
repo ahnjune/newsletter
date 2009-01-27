@@ -7,6 +7,8 @@
   <tr>
     <th>Title</th>
     <th>Published</th>
+    <th>Number</th>
+    <th>Volume</th>
   </tr>
   <% for item in @feed.feed_items.ordered %>
     <tr>
@@ -15,6 +17,12 @@
       </td>
       <td>
         <%= datetime item.published_at %>
+      </td>
+      <td>
+        <%= item.number %>
+      </td>
+      <td>
+        <%= item.volume %>
       </td>
     </tr>
   <% end %>

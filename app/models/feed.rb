@@ -30,21 +30,33 @@ class Feed < ActiveRecord::Base
     end
   end
   
+  def item_node_value(item, path)
+    if node = item.find_node(path)
+      node.text
+    end
+  end
+  
   def add_fetched_item(item)
     logger.info "Item: #{item.title}"
+    
+    item_attributes = {
+      :content => item.content,
+      :published_at => item.published,
+      :number => item_node_value(item, "prism:number"),
+      :volume => item_node_value(item, "prism:volume"),
+      :title => item.title,
+      :link => item.link
+    }
+
     if feed_item = feed_items.detect { |feed_item| feed_item.link == item.link}
       # update the feed item
-      feed_item.update_attribute :content, item.content
-      feed_item.update_attribute :published_at, item.published
+      feed_item.attributes = item_attributes
+      feed_item.save(false)
     else
       # add the feed item
-      feed_items.push FeedItem.new({
-        :feed => self,
-        :title => item.title,
-        :link => item.link,
-        :published_at => item.published,
-        :content => item.content
-      })
+      feed_items.push FeedItem.new(item_attributes.merge({
+        :feed => self
+      }))
     end
   end
   
