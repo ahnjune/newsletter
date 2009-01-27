@@ -40,17 +40,19 @@ class User < ActiveRecord::Base
   # that have not already been recommended.
   # returns the new recommendations
   def generate_recommendations
-    new_recommendations = []
-    feed_items = FeedItem.
-                  with_tags(tag_list).
-                  with_areas(areas).
-                  ordered.
-                  limit(10).
-                  unseen_by(self)
-
-    feed_items.each { |feed_item| recommendations.build(:recommendable => feed_item).save }
-    new_recommendations += feed_items
-    new_recommendations
+    returning([]) do |result|
+      result.concat(recommended_feed_items)
+      result.concat(recommended_amazon_items)
+      result.each { |item| recommendations.build(:recommendable => item).save }
+    end
+  end
+  
+  def recommended_amazon_items
+    []
+  end
+  
+  def recommended_feed_items
+    FeedItem.with_tags(tag_list).with_areas(areas).ordered.limit(10).unseen_by(self)
   end
 
   def name
