@@ -1,2 +1,2 @@
 <%= image_tag "icons/amazon.png" %>
-<%= link_to_function h(amazon_item.title), :class => "recommendation" %>
+<%= link_to h(amazon_item.title), amazon_asin_url(amazon_item.asin), :class => "recommendation" %>

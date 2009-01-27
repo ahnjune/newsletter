@@ -13,7 +13,7 @@ Your Books:
 
   <%- for book in @books -%>
   <%= book.title %>
-  http://www.amazon.com/gp/product/<%= book.asin %>
+  <%= amazon_asin_url book.asin %>
   
   <%- end -%>
 <%- end -%>

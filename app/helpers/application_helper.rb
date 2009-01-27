@@ -1,6 +1,10 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   
+  def amazon_asin_url(asin)
+    "http://www.amazon.com/gp/product/#{asin}"
+  end
+  
   # outputs an h3 with the date if the date changes
   def list_date(date)
     if date
