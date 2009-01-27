@@ -7,6 +7,11 @@ class AmazonItem < ActiveRecord::Base
   # Class Methods --------------------------------------------------------------
   
   class << self
+    
+    def search_books_by_keywords(*keywords)
+      search("Books", "Power" => "keywords: #{keywords.flatten.join(' or ')}")
+    end
+    
     # creates a number of amazon items based on a query. it will persist those items
     # that are found if necessary and return them..
     def search(area, query)
