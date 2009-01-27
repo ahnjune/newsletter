@@ -14,6 +14,12 @@ class Admin::RecommendationsController < Admin::BaseController
     redirect_to :action => "show"
   end
   
+  def destroy
+    @user.recommendations.clear
+    flash[:notice] = "User recommendations cleared"
+    redirect_to :action => "show"
+  end
+  
   private
   
   def load_user

@@ -4,5 +4,6 @@
 
 <div class="links">
   <%= link_to "Back to User", admin_user_path(@user) %>
+  <%= link_to "Clear Recommendations", admin_user_recommendations_path(@user), :method => :delete, :confirm => "Are you sure?" %>
   <%= link_to "Generate New", admin_user_recommendations_path(@user), :method => :post %>
 </div>
