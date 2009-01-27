@@ -24,7 +24,12 @@ class FeedItem < ActiveRecord::Base
   }
 
   named_scope :unseen_by, lambda { |user| {
-      :joins => "LEFT JOIN recommendations on recommendations.user_id = #{user.id}",
+      :joins => %{
+        LEFT JOIN recommendations
+        ON recommendations.recommendable_id = feed_items.id
+        AND recommendations.recommendable_type = "FeedItem"
+        AND recommendations.user_id = #{user.id}
+      },
       :conditions => ["recommendations.user_id IS NULL"]
     }
   }

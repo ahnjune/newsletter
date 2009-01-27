@@ -7,6 +7,5 @@ class Recommendation < ActiveRecord::Base
   validates_presence_of :recommendable
   
   named_scope :ordered, :order => "created_at DESC"
-  named_scope :optimized, :include => :recommendable
   
 end

@@ -15,6 +15,10 @@ class AmazonSearch
     resp = req.search( is, rg )
 
     @items = resp.item_search_response[0].items[0].item
+  rescue Exception => e
+    RAILS_DEFAULT_LOGGER.error "Amazon search failed for #{area} : #{options.inspect}: #{e}"
+  ensure
+    @items ||= []
   end
   
 end
