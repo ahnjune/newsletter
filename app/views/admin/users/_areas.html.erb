@@ -1,0 +1,18 @@
+<%= image_tag "icons/area.png" %>
+<%= link_to_function "Areas of Interest", :onclick => "$(this).next().toggle();" %>
+<div style="display: none;">
+  <% if user.areas.blank? %>
+    <p>
+      There are no areas of interest for this user
+    </p>
+  <% end %>
+  <ul>
+    <% for area in user.areas %>
+      <li>
+        <%= image_tag "icons/area.png" %>
+        <%= h area.name %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<br/>

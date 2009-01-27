@@ -1,0 +1,18 @@
+<%= image_tag "icons/tag.png" %>
+<%= link_to_function "Tags", :onclick => "$(this).next().toggle();" %>
+<div style="display: none;">
+  <% if user.tags.blank? %>
+    <p>
+      There are no tags for this user
+    </p>
+  <% end %>
+  <ul>
+    <% for tag in user.tags %>
+      <li>
+        <%= image_tag "icons/tag.png" %>
+        <%= h tag.name %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<br/>

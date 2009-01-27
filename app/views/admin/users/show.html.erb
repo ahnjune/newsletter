@@ -9,25 +9,8 @@
   <% end %>
 </table>
 
-<h2>Tags</h2>
-<ul>
-  <% for tag in @user.tags %>
-    <li>
-      <%= image_tag "icons/tag.png" %>
-      <%= h tag.name %>
-    </li>
-  <% end %>
-</ul>
-
-<h2>Areas of Interest</h2>
-<ul>
-  <% for area in @user.areas %>
-    <li>
-      <%= image_tag "icons/area.png" %>
-      <%= h area.name %>
-    </li>
-  <% end %>
-</ul>
+<%= render :partial => "tags", :locals => { :user => @user } %>
+<%= render :partial => "areas", :locals => { :user => @user } %>
 
 <div class="links">
   <%= link_to "Recommendations", admin_user_recommendations_path(@user) %>

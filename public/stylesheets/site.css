@@ -55,6 +55,10 @@ a {
   color: #333;
 }
 
+.links {
+  margin: 15 0 0 0;
+}
+
 .links a {
   font-size: 14px;
   text-decoration: none;
