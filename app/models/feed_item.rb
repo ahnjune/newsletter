@@ -3,6 +3,8 @@ class FeedItem < ActiveRecord::Base
   belongs_to :feed
   validates_presence_of :feed
 
+  has_many :recommendations, :as => :recommendable, :dependent => :destroy
+
   named_scope :ordered, :order => "published_at DESC"
 
   named_scope :with_tags, lambda { |*tags|

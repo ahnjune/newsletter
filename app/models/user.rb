@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :assigned_areas, :as => "owner", :dependent => :destroy
   has_many :areas, :through => :assigned_areas
 
+  has_many :recommendations, :dependent => :destroy
+
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login

@@ -9,7 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090127130817) do
+ActiveRecord::Schema.define(:version => 20090127131943) do
+
+  create_table "amazon_titles", :force => true do |t|
+    t.string   "amazon_title_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -44,6 +50,17 @@ ActiveRecord::Schema.define(:version => 20090127130817) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "recommendations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "recommendable_id"
+    t.string   "recommendable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recommendations", ["recommendable_id"], :name => "index_recommendations_on_recommendable_id"
+  add_index "recommendations", ["recommendable_type"], :name => "index_recommendations_on_recommendable_type"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
