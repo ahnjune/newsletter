@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :feeds, :member => "fetch", :collection => "fetch_all"
     admin.resources :feed_items
     admin.resources :users do |users|
-      users.resources :recommendations
+      users.resource :recommendations
     end
     admin.resources :areas
     admin.resource  :amazon_search
