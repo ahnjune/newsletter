@@ -44,6 +44,8 @@ class User < ActiveRecord::Base
       result.concat(recommended_feed_items)
       result.concat(recommended_amazon_items)
       result.each { |item| recommendations.build(:recommendable => item).save }
+      
+      Mailer.deliver_recommendations self, result
     end
   end
   
@@ -57,7 +59,7 @@ class User < ActiveRecord::Base
 
   # return an array of FeedItem
   def recommended_feed_items
-    FeedItem.with_tags(tag_list).with_areas(areas).ordered.limit(10).unseen_by(self)
+    FeedItem.with_tags(tag_list).with_areas(areas).ordered.limit(5).unseen_by(self)
   end
 
   def name

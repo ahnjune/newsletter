@@ -4,7 +4,7 @@ class InvitesController < ApplicationController
   
   def create
     params[:invite][:emails].split("\n").each do |email|
-      Mailer.deliver_invite current_user, email, request.host
+      Mailer.deliver_invite current_user, email
     end
     flash[:notice] = "Thank you!"
     redirect_to new_invite_path
