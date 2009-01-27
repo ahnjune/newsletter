@@ -36,8 +36,16 @@ class User < ActiveRecord::Base
 
   named_scope :ordered, lambda { |*sym| { :order => (sym.first || :email )}}
 
+  # create any recommendations based on relevant FeedItems and AmazonTitles 
+  # that have not already been recommended.
   def generate_recommendations
-    FeedItem.with_tags(tag_list).with_areas(areas).ordered
+    feed_items = FeedItem.
+                  with_tags(tag_list).
+                  with_areas(areas).
+                  ordered.
+                  limit(10).
+                  unseen_by(self)
+    
   end
 
   def name

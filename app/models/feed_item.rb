@@ -6,6 +6,7 @@ class FeedItem < ActiveRecord::Base
   has_many :recommendations, :as => :recommendable, :dependent => :destroy
 
   named_scope :ordered, :order => "published_at DESC"
+  named_scope :limit, lambda { |limit| { :limit => limit} }
 
   named_scope :with_tags, lambda { |*tags|
     tags.flatten!
@@ -20,6 +21,12 @@ class FeedItem < ActiveRecord::Base
     return {} if areas.empty?
     {:include => {:feed => [:areas] },
     :conditions => "areas.id IN (#{areas.flatten.map { |a| a.id }.join(',')})"}
+  }
+
+  named_scope :unseen_by, lambda { |user| {
+      :joins => "LEFT JOIN recommendations on recommendations.user_id = #{user.id}",
+      :conditions => ["recommendations.user_id IS NULL"]
+    }
   }
 
 end

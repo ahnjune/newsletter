@@ -3,7 +3,7 @@ class Admin::RecommendationsController < Admin::BaseController
   before_filter :load_user
   
   def index
-    
+
   end
   
   private
