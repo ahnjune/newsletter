@@ -3,7 +3,10 @@
 </p>
 <ul id="recommendations">
   <% for recommendation in recommendations %>
-    <%= render :partial => "recommendations/#{recommendation.recommendable.class.name.underscore}", 
-               :object => recommendation.recommendable %>
+    <li>
+      <%= list_date recommendation.created_at %>
+      <%= render :partial => "recommendations/#{recommendation.recommendable.class.name.underscore}", 
+                 :object => recommendation.recommendable %>
+    </li>
   <% end %>
 </ul>

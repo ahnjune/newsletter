@@ -1,6 +1,19 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   
+  # outputs an h3 with the date if the date changes
+  def list_date(date)
+    if date
+      date = date.beginning_of_day
+      if @list_date != date
+        return content_tag(:h2, date.strftime("%m/%d/%Y"))
+      end
+    end
+    nil
+  ensure
+    @list_date = date
+  end
+  
   def custom_form_for(*args)
     with_options :builder => CustomFormBuilder do |options|
       options.form_for(*args) do |f|
