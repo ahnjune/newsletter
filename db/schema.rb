@@ -9,9 +9,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090127131943) do
+ActiveRecord::Schema.define(:version => 20090127141635) do
 
-  create_table "amazon_titles", :force => true do |t|
+  create_table "amazon_items", :force => true do |t|
     t.string   "amazon_title_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20090127131943) do
 
   add_index "recommendations", ["recommendable_id"], :name => "index_recommendations_on_recommendable_id"
   add_index "recommendations", ["recommendable_type"], :name => "index_recommendations_on_recommendable_type"
+  add_index "recommendations", ["user_id"], :name => "index_recommendations_on_user_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

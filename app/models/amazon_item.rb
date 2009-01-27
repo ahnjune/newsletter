@@ -1,4 +1,4 @@
-class AmazonTitle < ActiveRecord::Base
+class AmazonItem < ActiveRecord::Base
   
   has_many :recommendations, :as => :recommendable, :dependent => :destroy
   
