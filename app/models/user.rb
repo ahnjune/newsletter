@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   
   # return an array of AmazonItem
   def recommended_amazon_items
-    []
+    AmazonItem.search("Books", "Power" => "keywords: #{tag_list.join(' or ')}")
   end
 
   # return an array of FeedItem

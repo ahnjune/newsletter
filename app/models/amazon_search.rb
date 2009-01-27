@@ -10,10 +10,8 @@ class AmazonSearch
   def initialize(area, options)
     is = ItemSearch.new(area, options )
     rg = ResponseGroup.new( 'Large' )
-
     req = Request.new
     req.locale = 'us'
-
     resp = req.search( is, rg )
 
     @items = resp.item_search_response[0].items[0].item
