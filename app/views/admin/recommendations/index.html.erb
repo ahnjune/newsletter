@@ -2,3 +2,8 @@
 
 <%= will_paginate @recommendations %>
 <%= render :partial => "recommendations/recommendations", :object => @recommendations %>
+
+<div class="links">
+  <%= link_to "Generate New", admin_user_recommendations_path(@user), :method => :post %>
+  <%= link_to "Back to User", admin_user_path(@user) %>
+</div>

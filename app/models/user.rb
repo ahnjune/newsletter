@@ -38,7 +38,9 @@ class User < ActiveRecord::Base
 
   # create any recommendations based on relevant FeedItems and AmazonTitles 
   # that have not already been recommended.
+  # returns the new recommendations
   def generate_recommendations
+    new_recommendations = []
     feed_items = FeedItem.
                   with_tags(tag_list).
                   with_areas(areas).
@@ -47,6 +49,8 @@ class User < ActiveRecord::Base
                   unseen_by(self)
 
     feed_items.each { |feed_item| recommendations.build(:recommendable => feed_item).save }
+    new_recommendations += feed_items
+    new_recommendations
   end
 
   def name
