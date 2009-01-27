@@ -5,7 +5,7 @@ class Admin::AmazonSearchesController < Admin::BaseController
   def show
     @query = params[:query]
     unless @query.blank?
-      @search = AmazonSearch.new(@query)
+      @search = AmazonSearch.new("Books", "Title" => @query)
     end
   end
   

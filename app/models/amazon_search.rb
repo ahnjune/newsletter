@@ -7,8 +7,8 @@ class AmazonSearch
   include Amazon::AWS
   include Amazon::AWS::Search
   
-  def initialize(query)
-    is = ItemSearch.new( 'Books', { 'Title' => query } )
+  def initialize(area, options)
+    is = ItemSearch.new(area, options )
     rg = ResponseGroup.new( 'Large' )
 
     req = Request.new
