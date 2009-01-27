@@ -1,7 +1,7 @@
 <h2>User - <%= h @user.name %></h2>
 
 <table>
-  <% %w[first_name last_name email gender birthday gender occupation].each do |field| %>
+  <% %w[login first_name last_name email gender birthday gender occupation].each do |field| %>
     <tr>
       <td><%= h field.titleize %></td>
       <td><%= h @user.send(field) %></td>
