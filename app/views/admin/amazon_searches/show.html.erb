@@ -20,6 +20,7 @@
       <% item_attributes = item.item_attributes[0] %>
       <li>
         <%= image_tag "icons/amazon.png" %>
+        <%= image_tag item.small_image.url %>
         <%= h item_attributes.title %>
       </li>
     <% end %>

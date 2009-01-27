@@ -4,17 +4,16 @@ require 'amazon/aws/search'
 include Amazon::AWS
 include Amazon::AWS::Search
 
-item_search = ItemSearch.new("Books", { 
-  "Power" => %Q{subject: ruby or rails}
-})
-response_group = ResponseGroup.new( 'Large' )
+def search(area, options, response_group = "Large")
+  item_search = ItemSearch.new(area, options)
+  response_group = ResponseGroup.new(response_group)
+  request = Request.new
+  request.locale = 'us'
+  response = request.search(item_search, response_group)
+  response.item_search_response[0].items[0].item
+end
 
-request = Request.new
-request.locale = 'us'
-
-resp = request.search(item_search, response_group)
-
-items = resp.item_search_response[0].items[0].item
+items = search("Books", "Power" => "subject: ruby")
 
 # Available properties for first item:
 puts items[0].properties
@@ -28,3 +27,4 @@ items.each do |item|
     puts attribs.title, attribs.list_price[0].formatted_price, ''
   end
 end
+
