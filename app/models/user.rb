@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
       result.concat(recommended_amazon_items)
       result.each { |item| recommendations.build(:recommendable => item).save }
       
-      Mailer.deliver_recommendations self, result
+      Mailer.deliver_recommendations(self, result) unless result.empty?
     end
   end
   

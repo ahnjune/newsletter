@@ -5,7 +5,11 @@ class Mailer < ActionMailer::Base
     recipients user.email
     from       'do-not-reply@thinkful.info'
     sent_on    sent_at
-    body       :user => user, :recommendations => recommendations
+    
+    books = recommendations.select { |r| r.kind_of?(AmazonItem)}
+    articles = recommendations - books
+    
+    body       :user => user, :books => books, :articles => articles
   end
 
   def invite(from_user, email, sent_at = Time.now)

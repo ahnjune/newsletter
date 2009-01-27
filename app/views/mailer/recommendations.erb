@@ -8,12 +8,24 @@ Thanks!
 
 - Us at Thinkful.info
 
+<%- unless @books.empty? -%>
 Your Books:
 
-  [List up to 5 books here]
+  <%- for book in @books -%>
+  <%= book.title %>
+  http://www.amazon.com/gp/product/<%= book.asin %>
+  
+  <%- end -%>
+<%- end -%>
 
+<%- unless @articles.empty? -%>
 Your articles:
 
-  [List up to 5 articles here]
+  <%- for article in @articles -%>
+  <%= article.title %>
+  <%= article.link %>
+  
+  <%- end -%>
+<%- end -%>
 
 If you have any suggestions for improvements, send us a note at: june (at) thinkful.info
