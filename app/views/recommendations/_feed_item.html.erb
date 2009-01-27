@@ -1,0 +1,6 @@
+<li>
+  <%= link_to_function h(feed_item.title), "Effect.toggle($(this).next(), 'blind', { duration: 0.5 })", :class => "recommendation" %>
+  <div class="excerpt" style="display: none;">
+    <%= sanitize feed_item.content %>
+  </div>
+</li>

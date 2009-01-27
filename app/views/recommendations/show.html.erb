@@ -1,6 +1,6 @@
 <h2>Your Recommendations</h2>
 
-<% if @feed_items.blank? %>
+<% if @recommendations.blank? %>
   <p>
     You do not have any recommendations at this time.  To get better recommendations,
     please <%= link_to "update your tags", tags_path %> and your 
@@ -9,16 +9,12 @@
 <% end -%>
 
 <p>
-  <%= will_paginate @feed_items %>
+  <%= will_paginate @recommendations %>
 </p>
 
 <ul id="recommendations">
-  <% for feed_item in @feed_items %>
-    <li>
-      <%= link_to_function h(feed_item.title), "Effect.toggle($(this).next(), 'blind', { duration: 0.5 })", :class => "recommendation" %>
-      <div class="excerpt" style="display: none;">
-        <%= sanitize feed_item.content %>
-      </div>
-    </li>
+  <% for recommendation in @recommendations %>
+    <%= render :partial => recommendation.recommendable.class.name.underscore, 
+               :object => recommendation.recommendable %>
   <% end %>
 </ul>

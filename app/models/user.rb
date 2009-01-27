@@ -45,7 +45,8 @@ class User < ActiveRecord::Base
                   ordered.
                   limit(10).
                   unseen_by(self)
-    
+
+    feed_items.each { |feed_item| recommendations.build(:recommendable => feed_item).save }
   end
 
   def name

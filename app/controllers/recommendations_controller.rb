@@ -4,7 +4,7 @@ class RecommendationsController < ApplicationController
   before_filter :set_nav
   
   def show
-    @feed_items = current_user.generate_recommendations.paginate(:page => params[:page], :per_page => 15)
+    @recommendations = current_user.recommendations.ordered.paginate(:page => params[:page], :per_page => 15)
   end
   
   private
