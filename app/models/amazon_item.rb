@@ -31,7 +31,7 @@ class AmazonItem < ActiveRecord::Base
     end
     
     def amazon_asin(item)
-      if item and asin = item.asin and not(asin.blank?)
+      if item and asin = item.asin.to_s
         return asin
       end
     end

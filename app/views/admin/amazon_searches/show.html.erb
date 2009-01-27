@@ -21,6 +21,7 @@
       <li>
         <%= image_tag "icons/amazon.png" %>
         <%= image_tag item.small_image.url if item.small_image %>
+        (<%= item.asin[0] %>)
         <%= h item_attributes.title %>
       </li>
     <% end %>
