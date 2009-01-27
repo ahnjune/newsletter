@@ -1,4 +1,6 @@
 class Mailer < ActionMailer::Base
+
+  helper ApplicationHelper
   
   def recommendations(user, recommendations, sent_at = Time.now)
     subject    "New Thinkful Recommendations"
