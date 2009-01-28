@@ -1,5 +1,5 @@
 set :application, "newsletter"
-set :hostname, "newsletter.nimbletechnique.com"
+set :hostname, "173.45.243.98"
 
 set :user, "deploy"
 set :host, "#{user}@#{hostname}"
