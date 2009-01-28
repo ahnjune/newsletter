@@ -11,10 +11,17 @@ class AuthenticationTest < ActionController::IntegrationTest
 
     # post the login and follow through to the home page
     post "/session", :login => user.login, :password => "secret"
+
+    # by default you go straight to the recommendations on login
     follow_redirect!
-    
-    # assert user redirected to the root page
-    assert_equal 200, status
     assert_equal "/", path
+    
+    # new users should be shown the tags screen from here
+    follow_redirect!
+    assert_equal "/tags", path
+    
   end
+  
+  
+  
 end
