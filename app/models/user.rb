@@ -36,6 +36,14 @@ class User < ActiveRecord::Base
 
   named_scope :ordered, lambda { |*sym| { :order => (sym.first || :email )}}
 
+  def can_generate_recommendations?
+    not needs_more_tags?
+  end
+
+  def needs_more_tags?
+    tag_list.length < 3
+  end
+
   # create any recommendations based on relevant FeedItems and AmazonTitles 
   # that have not already been recommended.
   # returns the new recommendations
@@ -46,6 +54,8 @@ class User < ActiveRecord::Base
       result.each { |item| recommendations.build(:recommendable => item).save }
       
       Mailer.deliver_recommendations(self, result) unless result.empty?
+      
+      update_attribute :recommendations_generated_at, Time.now
     end
   end
   

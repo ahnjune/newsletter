@@ -11,7 +11,7 @@ class RecommendationsController < ApplicationController
   private
   
   def tags_required
-    unless current_user.tag_list.length >= 3
+    if current_user.needs_more_tags? and current_user.recommendations_generated_at.nil?
       flash[:notice] = "You need at least three tags for Thinkful to generate recommendations"
       redirect_to tags_path
     end

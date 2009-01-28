@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090127165641) do
+ActiveRecord::Schema.define(:version => 20090128172703) do
 
   create_table "amazon_items", :force => true do |t|
     t.string   "asin"
@@ -83,23 +83,25 @@ ActiveRecord::Schema.define(:version => 20090127165641) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                     :limit => 40
-    t.string   "name",                      :limit => 100, :default => ""
-    t.string   "email",                     :limit => 100
-    t.string   "crypted_password",          :limit => 40
-    t.string   "salt",                      :limit => 40
+    t.string   "login",                        :limit => 40
+    t.string   "name",                         :limit => 100, :default => ""
+    t.string   "email",                        :limit => 100
+    t.string   "crypted_password",             :limit => 40
+    t.string   "salt",                         :limit => 40
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remember_token",            :limit => 40
+    t.string   "remember_token",               :limit => 40
     t.datetime "remember_token_expires_at"
-    t.boolean  "admin",                                    :default => false
+    t.boolean  "admin",                                       :default => false
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "birthday"
     t.string   "gender"
     t.string   "occupation"
+    t.datetime "recommendations_generated_at"
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+  add_index "users", ["recommendations_generated_at"], :name => "index_users_on_recommendations_generated_at"
 
 end

@@ -5,6 +5,13 @@ class TagsController < ApplicationController
 
   def create
     current_user.add_tag(params[:tag][:name])
+    
+    if should_generate_recommendations?
+      current_user.generate_recommendations
+      flash[:notice] = "Based on your tags, here are our recommendations."
+      redirect_to recommendations_path and return
+    end
+    
     redirect_to tags_path
   rescue Exception => e
     flash.now[:error] = "Invalid tag: #{e}"
@@ -18,6 +25,10 @@ class TagsController < ApplicationController
   end
   
   private
+
+  def should_generate_recommendations?
+    current_user.recommendations_generated_at.nil? and current_user.can_generate_recommendations?
+  end
   
   def set_nav
     @nav = :tags
