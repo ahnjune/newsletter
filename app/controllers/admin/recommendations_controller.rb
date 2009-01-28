@@ -15,8 +15,8 @@ class Admin::RecommendationsController < Admin::BaseController
   end
   
   def destroy
-    @user.recommendations.clear
-    flash[:notice] = "User recommendations cleared"
+    @user.clear_recommendations
+    flash[:notice] = "User recommendations cleared and last recommended time reset"
     redirect_to :action => "show"
   end
   
