@@ -13,18 +13,25 @@ def search(area, options, response_group = "Large")
   response.item_search_response[0].items[0].item
 end
 
-items = search("Books", "Power" => "subject: ruby")
+(1..5).each do |page|
+  puts "Searching page #{page}"
 
-# Available properties for first item:
-puts items[0].properties
-puts ""
+  items = search("Books", "Power" => "subject: ruby", "ItemPage" => page)
 
-items.each do |item|
-  attribs = item.item_attributes[0]
-  puts item.asin
-  puts attribs.label
-  if attribs.list_price
-    puts attribs.title, attribs.list_price[0].formatted_price, ''
+  # Available properties for first item:
+  #puts items[0].properties
+  #puts ""
+
+  items.each do |item|
+    attribs = item.item_attributes[0]
+    # puts item.asin
+    puts attribs.label
+    # if attribs.list_price
+    #   puts attribs.title, attribs.list_price[0].formatted_price, ''
+    # end
   end
+  
+  puts ""
 end
+
 

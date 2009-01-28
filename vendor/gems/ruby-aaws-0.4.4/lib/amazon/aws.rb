@@ -575,7 +575,7 @@ module Amazon
 
       OPT_PARAMETERS = %w[
 	Availability	Condition     MaximumPrice	MerchantId
-	MinimumPrice	OfferStatus   Sort
+	MinimumPrice	OfferStatus   Sort  ItemPage
       ]
 
       ALL_PARAMETERS = PARAMETERS + OPT_PARAMETERS
