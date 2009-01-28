@@ -14,7 +14,7 @@ class AmazonItem < ActiveRecord::Base
     
     # creates a number of amazon items based on a query. it will persist those items
     # that are found if necessary and return them..
-    def search(area, query, limit=5, pages=3)
+    def search(area, query, pages=3)
       logger.info "Performing Amazon search in #{area}: #{query.inspect}"
       result = []
       (1..pages).each do |page|
