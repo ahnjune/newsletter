@@ -2,6 +2,7 @@ class TagsController < ApplicationController
   
   before_filter :set_nav
   before_filter :login_required
+  before_filter :too_many_tags, :only => [:create]
 
   def create
     current_user.add_tag(params[:tag][:name])
@@ -25,6 +26,14 @@ class TagsController < ApplicationController
   end
   
   private
+
+  def too_many_tags
+    unless current_user.can_add_more_tags?
+      flash[:notice] = "You have reached the maximum number of tags."
+      redirect_to tags_path
+    end
+  end
+    
 
   def should_generate_recommendations?
     current_user.recommendations_generated_at.nil? and current_user.can_generate_recommendations?

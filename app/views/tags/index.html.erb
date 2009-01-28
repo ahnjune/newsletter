@@ -6,6 +6,10 @@
   longer relevant to you.
 </p>
 
+<p>
+  In order to generate recommendations, you must have at least three tags.
+</p>
+
 <% form_for :tag, @tag, :url => tags_path, :html => { :class => "noformat" } do |f| %>
   <%= f.text_field :name %>
   <%= submit_tag "Add New Tag" %>

@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
 
   named_scope :ordered, lambda { |*sym| { :order => (sym.first || :email )}}
 
+  def can_add_more_tags?
+    tag_list.length < 10
+  end
+
   def clear_recommendations
     recommendations.clear
     update_attribute :recommendations_generated_at, nil
