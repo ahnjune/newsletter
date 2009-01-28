@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :name, :password, :password_confirmation, :first_name, :last_name, :birthday, :gender, :occupation, :area_ids
 
   named_scope :ordered, lambda { |*sym| { :order => (sym.first || :email )}}
+  named_scope :recommended_before, lambda { |date| { :conditions => ["recommendations_generated_at IS NULL or recommendations_generated_at < ?", date] } }
 
   def can_add_more_tags?
     tag_list.length < 10
@@ -57,6 +58,8 @@ class User < ActiveRecord::Base
   # that have not already been recommended.
   # returns the new recommendations
   def generate_recommendations
+    return unless can_generate_recommendations?
+    logger.info "Generating recommendations for #{name}"
     returning([]) do |result|
       result.concat(recommended_feed_items)
       result.concat(recommended_amazon_items)

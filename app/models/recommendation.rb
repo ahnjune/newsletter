@@ -9,4 +9,10 @@ class Recommendation < ActiveRecord::Base
   named_scope :ordered, :order => "recommendations.created_at DESC"
   named_scope :optimized, {} # :include => :recommendable # TODO: this crashes
   
+  def self.generate_all
+    User.recommended_before(1.week.ago).each do |user|
+      user.generate_recommendations
+    end
+  end
+  
 end

@@ -8,9 +8,7 @@ class Admin::FeedsController < Admin::BaseController
   end
 
   def fetch_all
-    Feed.ordered.each do |feed|
-      feed.fetch
-    end
+    Feed.update_all
     flash[:notice] = "All feeds updated"
     redirect_to :action => "index"
   end

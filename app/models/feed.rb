@@ -11,6 +11,13 @@ class Feed < ActiveRecord::Base
   
   before_validation :fetch
   after_update :save_feed_items
+
+  def self.update_all
+    Feed.ordered.each do |feed|
+      logger.info "Updating feed #{feed.url}"
+      feed.fetch
+    end
+  end
   
   def title
     super || url
