@@ -13,10 +13,10 @@ def search(area, options, response_group = "Large")
   response.item_search_response[0].items[0].item
 end
 
-(399..400).each do |page|
+(1..1).each do |page|
   puts "Searching page #{page}"
 
-  items = search("Books", "Power" => "subject: ruby", "ItemPage" => page)
+  items = search("Books", "Power" => "subject: ruby asin: not B000QCS2HA not 0590189239", "ItemPage" => page)
 
   # Available properties for first item:
   #puts items[0].properties
@@ -24,8 +24,10 @@ end
 
   items.each do |item|
     attribs = item.item_attributes[0]
-    # puts item.asin
-    puts attribs.label
+    puts item.asin
+    puts attribs.title
+    puts ""
+    # puts attribs.label
     # if attribs.list_price
     #   puts attribs.title, attribs.list_price[0].formatted_price, ''
     # end
