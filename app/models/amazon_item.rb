@@ -14,10 +14,19 @@ class AmazonItem < ActiveRecord::Base
     
     # creates a number of amazon items based on a query. it will persist those items
     # that are found if necessary and return them..
-    def search(area, query, limit=5)
+    def search(area, query, limit=5, pages=3)
       logger.info "Performing Amazon search in #{area}: #{query.inspect}"
-      items = AmazonSearch.new(area, query).items
-      items.map { |item| store_or_lookup(item) }.compact
+      result = []
+      (1..pages).each do |page|
+        begin
+          items = AmazonSearch.new(area, query.merge("ItemPage" => page)).items
+          result += items.map { |item| store_or_lookup(item) }.compact
+        rescue Exception => e
+          logger.info "An error occured while searchin on page #{page}: #{e}"
+          break
+        end
+      end
+      result
     end
 
     # takes a raw item from the amazon search and if it is found in the database, it returns

@@ -13,7 +13,7 @@ def search(area, options, response_group = "Large")
   response.item_search_response[0].items[0].item
 end
 
-(1..5).each do |page|
+(399..400).each do |page|
   puts "Searching page #{page}"
 
   items = search("Books", "Power" => "subject: ruby", "ItemPage" => page)
