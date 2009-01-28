@@ -9,6 +9,10 @@ class RecommendationsController < ApplicationController
   end
   
   private
+
+  def access_denied
+    redirect_to page_path(:home)
+  end
   
   def tags_required
     if current_user.needs_more_tags? and current_user.recommendations_generated_at.nil?

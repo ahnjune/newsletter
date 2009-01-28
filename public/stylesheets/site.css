@@ -183,3 +183,13 @@ a.delete, a.edit {
   border: solid 2px #aaa;
   margin: 5 10 25 0;
 }
+
+ul.home {
+  font-family: Helvetica;
+  font-size: 22px;
+  color: #444;
+}
+
+ul.home li {
+  margin-bottom: 15px;
+}
