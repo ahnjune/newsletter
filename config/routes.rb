@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :invites
   map.resources :areas
   map.resource :recommendations
+  map.resources :pages
 
   map.root :controller => "recommendations", :action => "show"
 
