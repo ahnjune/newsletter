@@ -27,7 +27,10 @@ namespace :deploy do
 end
 
 after 'deploy:update_code' do
-  ["database", ].each do |name|
+  ["database"].each do |name|
     run "ln -s #{deploy_to}/shared/#{name}.yml #{release_path}/config"
   end
 end
+
+after "deploy", "deploy:cleanup"
+after "deploy:migrations", "deploy:cleanup"
