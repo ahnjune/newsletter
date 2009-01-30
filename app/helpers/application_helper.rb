@@ -2,7 +2,7 @@
 module ApplicationHelper
   
   def amazon_asin_url(asin)
-    "http://www.amazon.com/gp/product/#{asin}"
+    "http://www.amazon.com/exec/obidos/ASIN/#{asin}/Associate_ID/#{AMAZON_ASSOCIATE_ID}"
   end
   
   # outputs an h3 with the date if the date changes

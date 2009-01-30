@@ -1,0 +1,1 @@
+AMAZON_ASSOCIATE_ID = "thinkfulinfo-20"
