@@ -1,5 +1,11 @@
 <h2>User - <%= h @user.name %></h2>
 
+<div class="links">
+  <%= link_to "Back to Users", admin_users_path %>
+  <%= link_to "Recommendations", admin_user_recommendations_path(@user) %>
+  <%= link_to "Delete", admin_user_path(@user), :confirm => "Are you sure?", :method => :delete %>
+</div>
+
 <table>
   <% %w[login first_name last_name email birthday gender occupation].each do |field| %>
     <tr>
@@ -12,8 +18,3 @@
 <%= render :partial => "tags", :locals => { :user => @user } %>
 <%= render :partial => "areas", :locals => { :user => @user } %>
 
-<div class="links">
-  <%= link_to "Back to Users", admin_users_path %>
-  <%= link_to "Recommendations", admin_user_recommendations_path(@user) %>
-  <%= link_to "Delete", admin_user_path(@user), :confirm => "Are you sure?", :method => :delete %>
-</div>

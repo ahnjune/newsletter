@@ -1,10 +1,10 @@
 <h2>Edit Feed</h2>
 
-<% custom_form_for :feed, @feed, :url => admin_feed_path(@feed), :html => { :method => :put } do |f| %>  
-  <%= render :partial => "fields", :locals => { :f => f } %>
-<% end -%>
-
 <div class="links">
 <%= link_to "Back to Feed", admin_feed_path(@feed) %>
 </div>
+
+<% custom_form_for :feed, @feed, :url => admin_feed_path(@feed), :html => { :method => :put } do |f| %>  
+  <%= render :partial => "fields", :locals => { :f => f } %>
+<% end -%>
 
