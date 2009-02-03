@@ -5,7 +5,7 @@ set :user, "deploy"
 set :host, "#{user}@#{hostname}"
 
 set :scm, :git
-set :repository, "git@github.com:nimbletechnique/#{application}.git"
+set :repository, "git@github.com:ahnjune/#{application}.git"
 set :use_sudo, false
 
 set :deploy_to, "/var/www/apps/#{application}"
